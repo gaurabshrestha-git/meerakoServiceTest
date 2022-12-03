@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleOnClickSubmit = async () => {
     await axios
-      .post("http://localhost:5000/loginUser", {
+      .post("https://meerako.herokuapp.com/loginUser", {
         email: email,
         password: password,
       })
@@ -32,7 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/verifyToken", {
+      .post("https://meerako.herokuapp.com/verifyToken", {
         token: localStorage.getItem("token"),
       })
       .then((response) => {

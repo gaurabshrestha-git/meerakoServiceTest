@@ -8,15 +8,17 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleOnClickScrap = async () => {
-    await axios.get("http://localhost:5000/getData").then((response) => {
-      setProductDetails(response.data.data);
-      console.log(response.data.data);
-    });
+    await axios
+      .get("https://meerako.herokuapp.com/getData")
+      .then((response) => {
+        setProductDetails(response.data.data);
+        console.log(response.data.data);
+      });
   };
 
   const handleOnClickSubmit = async () => {
     axios
-      .post("http://localhost:5000/insertData", {
+      .post("https://meerako.herokuapp.com/insertData", {
         productDetails,
         userId: localStorage.getItem("userId"),
       })
@@ -29,7 +31,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/verifyToken", {
+      .post("https://meerako.herokuapp.com/verifyToken", {
         token: localStorage.getItem("token"),
       })
       .then((response) => {
