@@ -16,7 +16,7 @@ app.use("/", require("./routes/commonRoute"));
 //   console.log("hi we are running");
 //   return res.json("Hiii we are running");
 // });
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
   app.get("*", (req, res) =>
